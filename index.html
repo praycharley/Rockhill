@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockhill Company</title>
+    <style>
+        /* General Reset */
+        body, h1, h2, h3, p, ul, li, a, img {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366; /* Deep Blue */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header .logo {
+            position: absolute;
+            display: block;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Makes the logo round */
+            object-fit: cover; /* Ensures the image fits within the circle */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #ff6600; /* Hot Orange */
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffcc00; /* Yellow */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #003366; /* Deep Blue */
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ff9900; /* Slightly darker orange */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            text-decoration: underline;
+        }
+/* Thumbnails Section */
+.service-thumbnails {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    text-align: center;
+}
+
+.service-thumbnails h2 {
+    color: #003366; /* Deep Blue */
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.service-thumbnails p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.thumbnails-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.thumbnail {
+    flex: 1 1 30%;
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #ffcc00; /* Yellow accent */
+}
+
+.thumbnail h3 {
+    font-size: 1.2rem;
+    color: #003366; /* Deep Blue */
+    margin: 10px 0;
+    padding: 0 10px;
+}
+                /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Slide */
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }       
+
+        /* Main Section */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        main h2 {
+            color: #003366; /* Deep Blue */
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #ffcc00; /* Yellow */
+            color: #003366; /* Deep Blue */
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9900; /* Slightly darker orange */
+        }
+
+                /* About Section */
+        .about {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+        }    
+            /* Team Link Section */
+        .team-link-section {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .team-link-section h2 {
+            color: #003366; /* Deep Blue */
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .team-link-section p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .team-link-section .cta-button {
+            background-color: #ffcc00; /* Yellow */
+            color: #003366; /* Deep Blue */
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .team-link-section .cta-button:hover {
+            background-color: #ff9900; /* Slightly darker orange */
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .about-image {
+            flex: 1 1 40%;
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            flex: 1 1 55%;
+            text-align: left;
+        }
+        
+        .about-content h2 {
+            color: #003366; /* Deep Blue */
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .about-content p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .about-content .cta-button {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #ffcc00; /* Yellow */
+            color: #003366; /* Deep Blue */
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .about-content .cta-button:hover {
+            background-color: #ff9900; /* Slightly darker orange */
+        }
+
+            /* Our Services Section */
+            .our-services {
+                background-color: #f4f4f4; /* Light background for contrast */
+                padding: 20px;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+                max-width: 800px;
+            }
+        
+            .our-services h2 {
+                color: #003366; /* Deep Blue */
+                font-size: 2rem;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+        
+            .our-services p {
+                font-size: 1rem;
+                color: #333;
+                line-height: 1.6;
+                margin-bottom: 15px;
+                text-align: justify;
+            }
+        
+            .our-services ul {
+                list-style: none;
+                padding: 0;
+                margin: 15px 0;
+            }
+        
+            .our-services ul li {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #ff6600; /* Hot Orange */
+                margin-bottom: 10px;
+            }
+        
+            .our-services div {
+                margin-bottom: 20px;
+                padding: 10px;
+                border-left: 4px solid #ffcc00; /* Yellow accent */
+                background-color: #fff;
+                border-radius: 5px;
+            }
+        
+            .our-services div ul {
+                margin-bottom: 5px;
+            }
+        
+            .our-services div p {
+                margin: 0;
+                font-size: 0.95rem;
+                color: #555;
+            }
+
+            /* Contact Section */
+            .contact-section {
+                background-color: #f4f4f4; /* Light background for contrast */
+                padding: 40px 20px;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+                max-width: 800px;
+                text-align: center;
+            }
+            
+            .contact-section h2 {
+                color: #003366; /* Deep Blue */
+                font-size: 2rem;
+                margin-bottom: 20px;
+                font-weight: bold;
+            }
+            
+            .contact-section p {
+                font-size: 1rem;
+                color: #555;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            
+            .contact-section form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .contact-section form label {
+                font-weight: bold;
+                color: #003366; /* Deep Blue */
+                text-align: left;
+            }
+            
+            .contact-section form input,
+            .contact-section form textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+                background-color: #fff;
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+            }
+            
+            .contact-section form input:focus,
+            .contact-section form textarea:focus {
+                outline: none;
+                border-color: #ffcc00; /* Yellow */
+                box-shadow: 0 0 5px rgba(255, 204, 0, 0.8); /* Glow effect */
+            }
+            
+            .contact-section form button {
+                background-color: #ffcc00; /* Yellow */
+                color: #003366; /* Deep Blue */
+                padding: 10px 20px;
+                font-size: 1rem;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+            
+            .contact-section form button:hover {
+                background-color: #ff9900; /* Slightly darker orange */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+            
+            .contact-info {
+                margin-top: 20px;
+                font-size: 1rem;
+                color: #333;
+                line-height: 1.6;
+            }
+            
+            .contact-info p {
+                margin: 10px 0;
+            }
+            
+            .contact-info p strong {
+                color: #003366; /* Deep Blue */
+                font-weight: bold;
+            }
+                        /* Newsletter Section */
+            .newsletter {
+                margin-top: 30px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            
+            .newsletter h3 {
+                color: #003366; /* Deep Blue */
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter p {
+                font-size: 1rem;
+                color: #555;
+                margin-bottom: 20px;
+            }
+            
+            .newsletter form {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            
+            .newsletter form input {
+                padding: 10px;
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                flex: 1 1 300px;
+                max-width: 400px;
+            }
+            
+            .newsletter form button {
+                background-color: #ffcc00; /* Yellow */
+                color: #003366; /* Deep Blue */
+                padding: 10px 20px;
+                font-size: 1rem;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+            
+            .newsletter form button:hover {
+                background-color: #ff9900; /* Slightly darker orange */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+        /* Footer */
+        footer {
+            background-color: #003366; /* Deep Blue */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 720px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .cta-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            header .logo {
+                width: 50px;
+                height: 50px;
+            }            
+            
+            /* Hamburger Menu */
+            .hamburger {
+                display: none;
+                font-size: 1.5rem;
+                color: #fff;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            
+            /* Responsive Design for Small Screens */
+            @media (max-width: 768px) {
+                .nav-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            
+                .hamburger {
+                    display: block;
+                    margin: 10px 0; /* Add spacing around the hamburger */
+                }
+            
+                .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    background-color: #ff6600; /* Hot Orange */
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    width: 100%;
+                    padding: 10px 0;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+            
+                .nav-links.active {
+                    display: flex;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+           <img src="/" alt="">
+           <div>
+            <a href="index.html"><img src="profile-cover.gif" alt="Rockhill Logo" class="logo"></a> 
+            <h1>Welcome to Rockhill Solutions</h1>
+            <p>Your trusted partner in Innovation and Excellence</p>    
+        </div>
+        </div>
+    </header>
+      <nav>
+        <div class="nav-container">
+            <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#services" class="dropbtn">Services</a>
+                    <div class="dropdown-content">
+                        <a href="eng.html" target="_blank">Engineering and Construction</a>
+                        <a href="min.html" target="_blank">Mining Solution</a>
+                        <a href="oil.html" target="_blank">Oil and Gas</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+                <section class="service-thumbnails">
+            <h2>Explore Our Services</h2>
+            <div class="thumbnails-container">
+                <!-- Engineering and Construction -->
+                <div class="thumbnail">
+                    <a href="eng.html">
+                        <img src="engineering-thumbnail.jpg" alt="Engineering and Construction">
+                        <h3>Engineering and Construction</h3>
+                    </a>
+                </div>
+        
+                <!-- Mining Solutions -->
+                <div class="thumbnail">
+                    <a href="/min.html">
+                        <img src="mining-thumbnail.jpg" alt="Mining Solutions">
+                        <h3>Mining Solutions</h3>
+                    </a>
+                </div>
+        
+                <!-- Oil and Gas -->
+                <div class="thumbnail">
+                    <a href="oil.html">
+                        <img src="/images/oil-thumbnail.jpg" alt="Oil and Gas">
+                        <h3>Oil and Gas</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--MEET OUR TEAM-->
+        <section class="team-link-section">
+        <h2>Meet Our Team</h2>
+        <p>
+            At Rockhill, our team of dedicated professionals is the backbone of our success. With expertise in engineering, mining, and oil and gas, 
+            our team works tirelessly to deliver innovative and sustainable solutions for our clients.
+        </p>
+        <a href="about.html#team" class="cta-button">Learn More About Our Team</a>
+    </section>
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="rock hill logo_ Jpeg.jpg" alt="About Rockhill" />
+            </div>
+            <div class="about-content">
+                <h2>About Rockhill</h2>
+                <p>
+                    At Rockhill, we strive to deliver the best solutions tailored to your needs. Our team is dedicated to providing exceptional service and innovative ideas for your 
+                    Engineering and Construction Needs, Oil and Gas Exploration, and Mining Solutions.
+                </p>
+                <p>
+                    With a commitment to excellence, we aim to create sustainable and impactful solutions that drive progress and innovation in the industries we serve. 
+                    Our expertise, combined with cutting-edge technology, ensures that we remain a trusted partner for our clients worldwide.
+                </p>
+                <a href="#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+        
+        <div class="contact" id="contact">  
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Reach out to us through our contact details:</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> admin@rockhillconsult.com</p>
+                <p><strong>Phone:</strong> +233 (0) 277 797 679</p>
+                <p><strong>Address:</strong> Obuasi, Ghana</p>
+            </div>
+        
+            <!-- Newsletter Section -->
+            <div class="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Stay updated with the latest news, services, and insights from Rockhill Solution.</p>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Rockhill Company. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    // toggleNavigations Menu Functionality
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    // Slideshow functionality
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 10000); // Change slide every 10 seconds
+        }
+    
+        function changeSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            slides[slideIndex - 1].style.display = "none";
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            slides[slideIndex - 1].style.display = "block";
+        }
+</script>
+</html>

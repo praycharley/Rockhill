@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockhill Company</title>
+    <style>
+        /* General Reset */
+        body, h1, h2, h3, p, ul, li, a, img {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366; /* Deep Blue */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header .logo {
+            position: absolute;
+            display: block;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Makes the logo round */
+            object-fit: cover; /* Ensures the image fits within the circle */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #ff6600; /* Hot Orange */
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mission and Vision Section */
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            background-color: #f4f4f4;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .mission-vision .mission, .mission-vision .vision {
+            flex: 1 1 45%;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-vision h2 {
+            color: #003366; /* Deep Blue */
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .mission-vision p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Core Values Section */
+        .core-values {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .core-values h2 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .core-values ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .core-values ul li {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            color: #003366;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="Index.html"><img src="/profile-cover.gif" alt="Rockhill Logo" class="logo"></a> 
+            <h1>Welcome to Rockhill Solution</h1>
+            <p>Your trusted partner in Innovation and Excellence</p>    
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Mission and Vision Section -->
+        <div class="mission-vision">
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <p>
+                    To deliver innovative and sustainable solutions in engineering, mining, and oil and gas industries, 
+                    ensuring excellence and value for our clients while fostering a culture of safety, integrity, and environmental responsibility.
+                </p>
+            </div>
+            <div class="vision">
+                <h2>Our Vision</h2>
+                <p>
+                    To be a global leader in providing cutting-edge solutions that drive progress and create lasting impacts in the industries we serve.
+                </p>
+            </div>
+        </div>
+
+        <!-- Core Values Section -->
+        <div class="core-values">
+            <h2>Our Core Values</h2>
+            <ul>
+                <li>Integrity: Upholding the highest ethical standards in all our operations.</li>
+                <li>Innovation: Continuously improving and adopting new technologies.</li>
+                <li>Excellence: Delivering high-quality services and solutions.</li>
+                <li>Sustainability: Promoting environmentally responsible practices.</li>
+                <li>Collaboration: Building strong partnerships with clients and stakeholders.</li>
+            </ul>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section" id="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="/images/team1.jpg" alt="Team Member 1">
+                    <h3>Emily Johnson</h3>
+                    <p>Chief Executive Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/images/team2.jpg" alt="Team Member 2">
+                    <h3>David Lee</h3>
+                    <p>Head of Engineering</p>
+                </div>
+                <div class="team-member">
+                    <img src="/images/team3.jpg" alt="Team Member 3">
+                    <h3>Sarah Williams</h3>
+                    <p>Operations Manager</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Rockhill Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

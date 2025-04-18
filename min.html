@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockhill Solution</title>
+    <style>
+        /* General Reset */
+        body, h1, h2, h3, p, ul, li, a, img {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366; /* Deep Blue */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header .logo {
+            position: absolute;
+            display: block;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Makes the logo round */
+            object-fit: cover; /* Ensures the image fits within the circle */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #ff6600; /* Hot Orange */
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffcc00; /* Yellow */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #003366; /* Deep Blue */
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ff9900; /* Slightly darker orange */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            text-decoration: underline;
+        }
+
+                /* Mission and Vision Section */
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            background-color: #f4f4f4;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .mission-vision .mission, .mission-vision .vision {
+            flex: 1 1 45%;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-vision h2 {
+            color: #003366; /* Deep Blue */
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .mission-vision p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+                /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Slide */
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        
+        /* Slide Image */
+        .slide-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        /* Navigation Arrows */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #003366; /* Deep Blue */
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            user-select: none;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: #ffcc00; /* Yellow */
+        }
+        
+        /* Fade Animation */
+        .fade {
+            animation: fadeEffect 1.5s;
+        }
+        
+        @keyframes fadeEffect {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        /* Main Section */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        main h2 {
+            color: #003366; /* Deep Blue */
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #ffcc00; /* Yellow */
+            color: #003366; /* Deep Blue */
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9900; /* Slightly darker orange */
+        }
+
+                /* About Section */
+        .about {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .about-image {
+            flex: 1 1 40%;
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            flex: 1 1 55%;
+            text-align: left;
+        }
+        
+        .about-content h2 {
+            color: #003366; /* Deep Blue */
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .about-content p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .about-content .cta-button {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #ffcc00; /* Yellow */
+            color: #003366; /* Deep Blue */
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .about-content .cta-button:hover {
+            background-color: #ff9900; /* Slightly darker orange */
+        }
+
+            /* Our Services Section */
+            .our-services {
+                background-color: #f4f4f4; /* Light background for contrast */
+                padding: 20px;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+                max-width: 800px;
+            }
+        
+            .our-services h2 {
+                color: #003366; /* Deep Blue */
+                font-size: 2rem;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+        
+            .our-services p {
+                font-size: 1rem;
+                color: #333;
+                line-height: 1.6;
+                margin-bottom: 15px;
+                text-align: justify;
+            }
+        
+            .our-services ul {
+                list-style: none;
+                padding: 0;
+                margin: 15px 0;
+            }
+        
+            .our-services ul li {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #ff6600; /* Hot Orange */
+                margin-bottom: 10px;
+            }
+        
+            .our-services div {
+                margin-bottom: 20px;
+                padding: 10px;
+                border-left: 4px solid #ffcc00; /* Yellow accent */
+                background-color: #fff;
+                border-radius: 5px;
+            }
+        
+            .our-services div ul {
+                margin-bottom: 5px;
+            }
+        
+            .our-services div p {
+                margin: 0;
+                font-size: 0.95rem;
+                color: #555;
+            }
+
+                        /* Services Section */
+            .services-section {
+                background-color: #f4f4f4;
+                padding: 40px 20px;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 100%; /* Full width of the screen */
+                text-align: center;
+            }
+            
+            .services-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center; /* Center the items */
+                max-width: 1200px; /* Maintain a maximum width for the content */
+                margin: 0 auto; /* Center the container */
+            }
+            
+            .service {
+                flex: 1 1 30%; /* Maintain the size of each category */
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: left;
+                max-width: 350px; /* Ensure each category has a consistent size */
+            }
+            
+            .service img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .service h3 {
+                color: #003366; /* Deep Blue */
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .service p {
+                font-size: 1rem;
+                color: #555;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+            
+            @media (max-width: 768px) {
+                .services-container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            
+                .service {
+                    flex: 1 1 100%;
+                    max-width: 100%; /* Allow full width on smaller screens */
+                }
+            }
+
+            /*Contact Section*/
+.contact-section {
+    background-color: #f4f4f4; /* Light background for contrast */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: #003366; /* Deep Blue */
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+.contact-info {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+        /* Footer */
+        footer {
+            background-color: #003366; /* Deep Blue */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 720px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .cta-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            header .logo {
+                width: 50px;
+                height: 50px;
+            }            
+            
+            /* Hamburger Menu */
+            .hamburger {
+                display: none;
+                font-size: 1.5rem;
+                color: #fff;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            
+            /* Responsive Design for Small Screens */
+            @media (max-width: 768px) {
+                .nav-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            
+                .hamburger {
+                    display: block;
+                    margin: 10px 0; /* Add spacing around the hamburger */
+                }
+            
+                .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    background-color: #ff6600; /* Hot Orange */
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    width: 100%;
+                    padding: 10px 0;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+            
+                .nav-links.active {
+                    display: flex;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="index.html"><img src="profile-cover.gif" alt="Rockhill Logo" class="logo"></a> 
+            <h1>Welcome to Rockhill Mining Solution</h1>
+            <p>Your trusted partner in Innovation and Excellence</p>    
+        </div>
+    </header>
+      <nav>
+        <div class="nav-container">
+            <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#services" class="dropbtn">Services</a>
+                    <div class="dropdown-content">
+                        <a href="https://example.com/service1" target="_blank">Engineering and Construction</a>
+                        <a href="https://example.com/service2" target="_blank">Mining Solution</a>
+                        <a href="https://example.com/service3" target="_blank">Oil and Gas</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+    <!-- Mission and Vision Section -->
+    <div class="mission-vision">
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>
+                To deliver innovative and sustainable solutions in engineering, mining, and oil and gas industries, 
+                ensuring excellence and value for our clients while fostering a culture of safety, integrity, and environmental responsibility.
+            </p>
+        </div>
+        <div class="vision">
+            <h2>Our Vision</h2>
+            <p>
+                To be a global leader in providing cutting-edge solutions that drive progress and create lasting impacts in the industries we serve.
+            </p>
+        </div>
+        <div class="our-services">
+            <h2>Our Services</h2>
+            <p>Explore our wide range of services designed to meet your needs:</p>
+            <div class="slideshow-container">
+                <!-- Slide 1 -->
+                <div class="slide fade"> <a href="eng.html">
+                    <h3>Engineering and Construction</h3>
+                    <p>
+                        As an Engineering and Construction service provider, we are committed to delivering high-quality projects on time and within budget. 
+                        Our team of experts is equipped with the latest technology and industry knowledge to ensure your project is a success.
+                    </p></a>
+                </div>
+        
+                <!-- Slide 2 -->
+                <div class="slide fade"><a href="min.html">
+                    <h3>Mining Solutions</h3>
+                    <p>
+                        Our Mining Solutions service serves as a center of excellence for advanced,
+                         data-driven technologies that optimize and modernize mining operations for greater efficiency, safety, and sustainability. 
+                        </p></a>
+                </div>
+        
+                <!-- Slide 3 -->
+                <div class="slide fade"><a href="oil.html">
+                    <h3>Oil and Gas Services</h3>
+                    <p>
+                        Reliable Oil and Gas Services You Can Trust. We provide expert solutions for the oil and gas industry—from equipment maintenance to 
+                        safety inspections and supply logistics. Count on us for quality service, efficiency, and industry expertise.
+                    </p></a>
+                </div>
+            </div>
+        </div>
+       <section class="services-section" id="services">
+        <h2>Our Mining Solutions Services</h2>
+        <p>At Rock Hill Mining Solutions, we provide a wide range of innovative and reliable services tailored to meet the unique needs of the mining industry:</p>
+        <div class="services-container">
+            <!-- Service 1 -->
+            <div class="service">
+                <img src="/images/mining-technology.jpg" alt="Mining Technology Services">
+                <h3>Mining Technology Services</h3>
+                <p>
+                    We offer advanced mining technology solutions, including:
+                </p>
+                <ul>
+                    <li>Condition Monitoring: Real-time monitoring of equipment and processes to ensure optimal performance.</li>
+                    <li>Personnel & Equipment Tracking: Systems to track personnel and equipment, improving safety and operational efficiency.</li>
+                    <li>Surface Mining Technology: Real-time tracking of excavators and dump trucks to enhance operational efficiency.</li>
+                    <li>Ore Tracking Devices: Monitors ore dumping activities for accurate material tracking in underground and surface mining operations.</li>
+                    <li>Control Room Setup: Designing and installing centralized control rooms for efficient monitoring and management of mining operations.</li>
+                </ul>
+            </div>
+    
+            <!-- Service 2 -->
+            <div class="service">
+                <img src="/images/ground-support.jpg" alt="Ground Support Solutions">
+                <h3>Ground Support Solutions</h3>
+                <p>
+                    We provide comprehensive ground support solutions, including:
+                </p>
+                <ul>
+                    <li>Rock Bolts: Rebar Bolts, Cable Bolts, Self-Drilling Bolts (SDBs), Spin-Lock Bolts, Friction Bolts (Split Sets).</li>
+                    <li>Roof and Rib Supports: Canopy Roof Supports, Standing Roof Supports, Mesh and Straps.</li>
+                    <li>Resin and Grout Products: Resin Cartridges for anchoring bolts, Pumpable Grouts for filling cavities and stabilizing ground.</li>
+                    <li>Mine Mesh Systems: High-tensile steel mesh and lightweight polymer grids for added safety.</li>
+                    <li>Rock Monitoring Systems: Electronic monitoring of rock mass movement.</li>
+                    <li>Paste Fill Binder: Cost-effective super strength paste binder solutions.</li>
+                </ul>
+            </div>
+    
+            <!-- Service 3 -->
+            <div class="service">
+                <img src="/images/ventilation.jpg" alt="Ventilation Solutions">
+                <h3>Ventilation Solutions</h3>
+                <p>
+                    Our ventilation solutions include:
+                </p>
+                <ul>
+                    <li>Ventilation Fans: Efficient and reliable single & twin-staged secondary ventilation fans.</li>
+                    <li>Ventilation Control Devices: Flexible, rigid, and automated ventilation ducting and regulators.</li>
+                    <li>Ventilation Instrumentation: Modern instruments with real-time monitoring capabilities.</li>
+                    <li>Mine Ventilation Support Services: Supply and installation of automated ventilation doors and regulators.</li>
+                    <li>Local Exhaust Ventilation: Industrial ventilation solution design, supply, and installation.</li>
+                </ul>
+            </div>
+    
+            <!-- Service 4 -->
+            <div class="service">
+                <img src="/images/fire-management.jpg" alt="Mine Fire Management Systems">
+                <h3>Mine Fire Management Systems</h3>
+                <p>
+                    We provide fire management systems tailored to mining environments, including:
+                </p>
+                <ul>
+                    <li>Fire Engineering & Modeling: Designing fire prevention systems.</li>
+                    <li>Fire Suppression Installations: Installing hydrant and suppression systems.</li>
+                    <li>Emergency Evacuation Design & Servicing: Developing evacuation plans and providing servicing.</li>
+                    <li>Refuge Chambers: Supply of refuge chambers and self-rescuers.</li>
+                </ul>
+            </div>
+    
+            <!-- Service 5 -->
+            <div class="service">
+                <img src="/images/procurement.jpg" alt="Procurement and Logistics">
+                <h3>Procurement & Logistics</h3>
+                <p>
+                    Our procurement and logistics services include:
+                </p>
+                <ul>
+                    <li>Mining Supplies: Essential mining equipment and materials.</li>
+                    <li>Supply of Safety Equipment: High-quality PPE, gas detectors, and monitors.</li>
+                    <li>Agency Arrangements: Partnering with global manufacturers for efficient supply services.</li>
+                    <li>Logistics Services: Managing logistics from ports to mine sites across West Africa.</li>
+                </ul>
+            </div>
+    
+            <!-- Service 6 -->
+            <div class="service">
+                <img src="/images/training.jpg" alt="Training Services">
+                <h3>Training Services</h3>
+                <p>
+                    We offer comprehensive training services, including:
+                </p>
+                <ul>
+                    <li>Basic to Advanced Mining Software Training.</li>
+                    <li>Specialized Technology Training: Hands-on training in advanced mining technologies.</li>
+                    <li>Mining Courses & Certifications: Certifications and courses to enhance workforce skillsets.</li>
+                </ul>
+            </div>
+    
+            <!-- Service 7 -->
+            <div class="service">
+                <img src="/images/hygiene.jpg" alt="Industrial Hygiene Services">
+                <h3>Industrial Hygiene Services</h3>
+                <p>
+                    Our industrial hygiene services include:
+                </p>
+                <ul>
+                    <li>Sample Preparation: Ensuring accurate analysis by preparing samples for testing.</li>
+                    <li>Dust & Diesel Particulate Matter (DPM) Analysis: Monitoring airborne particulates for safety and compliance.</li>
+                    <li>Silica & Metal Fumes Analysis: Testing for harmful substances to ensure worker safety.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+        
+        <!-- Contact Section -->
+         <div class="contact" id="contact">  
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Reach out to us through our contact details:</p>
+            <form action="#" method="post">
+            <div class="contact-info">
+                <p><strong>Email:</strong> admin@rockhillconsult.com  </p>
+                <p><strong>Phone:</strong>+233 (0) 277 797 679   </p>
+                <p><strong>Address:</strong>Obuasi, Ghana</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Rockhill Company. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    // toggleNavigations Menu Functionality
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    // Slideshow functionality
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 10000); // Change slide every 10 seconds
+        }
+    
+        function changeSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            slides[slideIndex - 1].style.display = "none";
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            slides[slideIndex - 1].style.display = "block";
+        }
+</script>
+</html>
